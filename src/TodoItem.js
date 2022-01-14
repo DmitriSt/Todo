@@ -1,12 +1,11 @@
 import React, {useContext} from 'react'
 import {Context} from './context'
-import {StyledTodoItem, ItemTitle, ItemDelete} from './StyledComponent'
 
 export default function TodoItem({title, id, completed}) {
   const {dispatch} = useContext(Context)
 
   return (
-    <StyledTodoItem>
+    <div>
       <label>
         <input
           type="checkbox"
@@ -16,17 +15,17 @@ export default function TodoItem({title, id, completed}) {
             payload: id
           })}
         />
-        <ItemTitle>{title}</ItemTitle>
+        <div>{title}</div>
 
-        <ItemDelete
+        <div
           onClick={() => dispatch({
             type: 'remove',
             payload: id
           })}
         >
           delete
-        </ItemDelete>
+        </div>
       </label>
-    </StyledTodoItem>
+    </div>
   )
 }

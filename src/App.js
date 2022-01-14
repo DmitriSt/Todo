@@ -2,7 +2,6 @@ import React, {useState, useEffect, useReducer} from 'react'
 import TodoList from './TodoList'
 import {Context} from './context'
 import reducer from './reducer'
-import {Container, Title, Input} from './StyledComponent'
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, JSON.parse(localStorage.getItem('todos')) || [])
@@ -26,10 +25,10 @@ export default function App() {
     <Context.Provider value={{
       dispatch
     }}>
-      <Container>
-        <Title>Todo</Title>
+      <div>
+        <h1>Todo</h1>
 
-        <Input 
+        <input 
           type="text" 
           value={todoTitle}
           onChange={event => setTodoTitle(event.target.value)}
@@ -38,7 +37,7 @@ export default function App() {
         />
 
         <TodoList todos={state} />
-      </Container>
+      </div>
     </Context.Provider>
   );
 }
