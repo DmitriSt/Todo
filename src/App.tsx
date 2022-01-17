@@ -3,10 +3,11 @@ import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment, incrementByAmount } from './store/reducers/counterSlice'
 import { setLoading } from './store/reducers/appSlice';
 import User from './components/user/User';
+import { RootState } from './store/store';
 
 const App = () => {
-  const loading = useSelector((state) => state.app.loading);
-  const count = useSelector((state) => state.counter.value);
+  const loading = useSelector((state: RootState) => state.app.loading);
+  const count = useSelector((state: RootState) => state.counter.value);
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -16,7 +17,8 @@ const App = () => {
   }, [dispatch]);
 
   return (
-      !loading ? (
+    <>
+      {!loading ? (
         'Loading...'
       ) : (
         <div>
@@ -46,8 +48,8 @@ const App = () => {
           </div>
           <User />
         </div>
-      )
-    
+      )}
+      </>
   )
 }
 

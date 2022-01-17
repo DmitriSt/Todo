@@ -4,7 +4,7 @@ import { act } from "react-dom/test-utils";
 
 import App from './App';
 import { Provider } from "react-redux";
-import store from './store/store'
+import { store } from './store/store'
 
 let container = null;
 beforeEach(() => {
