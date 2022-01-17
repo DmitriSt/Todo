@@ -13,7 +13,7 @@ const User = () => {
   }, []);
 
   if (!user) {
-    return "loading...";
+    return <>loading...</>;
   }
 
   return (
